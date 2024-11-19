@@ -66,10 +66,7 @@ void PrintCharacter(PlayerCharacter & p1) {
 		cout << "\n-Buffs:\n";
 		
 
-
-
-
-		cout << "\n-Debuffs:\n";
+		cout << "\n-Debuffs:";
 
 		cout << '\n';
 		p1.gainEXP(100u);
@@ -84,94 +81,67 @@ int main() {
 	//PlayerCharacter p1(new Oracle());
 	//PlayerCharacter p2(new Interlacer());
 	//PlayerCharacter p3(new Unveiler());
-	PlayerCharacter p4(new Justiciar()); 
-
-	//KLATA
-	{
-		CoreStats plate_stats;
-		plate_stats.Defence = 5;
-		plate_stats.Warding = 10;
-		
-		Item* Mail = ItemManager::CreateArmor("Legion's Creed (chest)", plate_stats, ARMORSLOT::CHEST); 
-		if (p4.equip(Mail)) {
-			cout << "Equip success!\n";
-		}
-		else {
-			cout << "Equip fail\n";
-		}
-	}
-	//RÊKAWICE
-	{
-		CoreStats gauntlets_stats; 
-		gauntlets_stats.Attack = 6; 
-		gauntlets_stats.Speed = 1; 
+	PlayerCharacter p4(new Justiciar());
 
 
-		Item* Gauntlets = ItemManager::CreateArmor("Seraph's Wings (arms)", gauntlets_stats, ARMORSLOT::ARMS);
-		if (p4.equip(Gauntlets)) {
-			cout << "Equip success!\n";
-		}
-		else {
-			cout << "Equip fail\n";
-		}
-	}
-	//HE£M
-	{
-		CoreStats helmet_stats;
-		helmet_stats.Defence = 7;
-		helmet_stats.Warding = 4;
-		helmet_stats.Attunment = 2;
-		Item* Helm = ItemManager::CreateArmor("Knight's Pledge (hemlet)", helmet_stats, ARMORSLOT::HEAD);
-		if (p4.equip(Helm)) { 
-			cout << "Equip success!\n";
-		}
-		else {
-			cout << "Equip fail\n";
-		}
-	}
-	//BROÑ
-	{
-		CoreStats sword_stats;
-		sword_stats.Attack = 12;
-		sword_stats.Attunment = 3;
-		Item* Sword = ItemManager::CreateWeapon("FlameCleaver", sword_stats, WEAPONTYPE::MELEE, 3, 9);
-		if (p4.equip(Sword)){
-			cout << "Equip success!\n";
-		}
-		else {
-			cout << "Equip fail\n";
-		}
-	}
+	Item* Mail = ItemManager::CreateArmor("Legion's Creed (chest)", CoreStats(0, 0, 0, 5, 10), ARMORSLOT::CHEST);
+	Item* Gauntlets = ItemManager::CreateArmor("Seraph's Wings (chest)", CoreStats(6, 0, 1, 0, 0), ARMORSLOT::CHEST);
+	Item* Helm = ItemManager::CreateArmor("Knight's Pledge (hemlet)", CoreStats(0, 2, 0, 7, 4), ARMORSLOT::HEAD);
+
+	Item* Sword = ItemManager::CreateWeapon("FlameCleaver", CoreStats(), WEAPONTYPE::MELEE, 3, 9);
+
+	ItemManager::Equip(Mail, &p4);
+	ItemManager::Equip(Gauntlets, &p4);
+	ItemManager::Equip(Sword, &p4);
 
 
 
-	
 
 
 
-	
 
 	//BUFF
-	CoreStats over;
-	over.Attack = 10;
-	over.Warding = 4;
-
-	Buff shield("Overshield", over, 3, false);
+	Buff shield("Overshield", CoreStats(10, 0, 0, 0, 4), 3, false);
 	p4.ApplyBuff(shield);
-	 
+
 	//PrintCharacter(p1); 
 	//PrintCharacter(p2); 
 	//PrintCharacter(p3);
 	PrintCharacter(p4);
-	
+
 	cout << "\nHP before taking damage: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
-	p4.takeDamage(4);
+	p4.takeDamage(10);
 	cout << "HP after damage: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
-	Item* healPotion = ItemManager::CreateConsumable("SmallPotion", 5u, 3u);
-	p4.use(healPotion);
+	Item* healPotion = ItemManager::CreateConsumable("SmallPotion", 6u, 3u);
+	ItemManager::MoveToInventory(healPotion, &p4);
+
+	ItemManager::Use(healPotion, &p4);
 	cout << "HP after using potion: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
 
-	
+
+
+	ItemManager::MoveToInventory(
+		ItemManager::CreateWeapon("Comet's Trail", CoreStats(), WEAPONTYPE::MELEE, 5, 12),
+		&p4);
+	{
+		auto inv = p4.getInventoryList();
+		cout << "Inventory: \n  ";
+		for (auto it : inv) {
+			cout << " -" << *it << "  ";
+		}
+	}
+
+	ItemManager::Use(healPotion, &p4);
+	ItemManager::Use(healPotion, &p4);
+	cout << endl;
+	{
+		auto inv = p4.getInventoryList(); 
+		cout << "Inventory(after using other potions): \n  ";
+		for (auto it : inv) {
+			cout << " -" << *it << "  ";
+		}
+	}
+	cout << "HP after other potions: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
 	
 	return 0;
 }

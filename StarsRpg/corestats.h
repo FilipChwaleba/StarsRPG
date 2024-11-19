@@ -7,6 +7,18 @@ struct CoreStats {
 	statType Defence = 0;
 	statType Warding = 0;
 
+	CoreStats() {
+		Attack = 0;
+		Attunment = 0;
+		Speed = 0;
+		Defence = 0;
+		Warding = 0;
+	}
+
+
+	CoreStats(statType atk, statType atn, statType spd, statType def, statType wrd)
+		: Attack(atk), Attunment(atn), Speed(spd), Defence(def), Warding(wrd) {}
+
 	CoreStats& operator+=(const CoreStats& rhs) {
 		this->Attack += rhs.Attack;
 		this->Attunment += rhs.Attunment;

@@ -154,10 +154,16 @@ NOTATKA - PRZEROBIĆ SYSTEM EFFECT NA BAZOWĄ KLASE DLA BUFF I DEBUFF
 
 ##### Ice  
   Core identity: Focus, Action Prevention, Debuff Application
-- Passive : Frostbite - 
-- Frozen - 
-- Hail - 
-- Shatter - 
+- Passive : Frostbite - gain additional Focus based on level.
+                        Whenever you deal Ice damage, there is a small chance to apply 
+                        Freeze to them, per hit
+- Frozen - a target cannot perform any Actions in their next turn, ending it automatically
+          The state ends at the beggining of next Action Cycle.
+          While Frozen, units take reduced Damamge
+- Hail - create a Hazard -> create an Ice Storm, dealing a small ammount of Ice Damage
+        whenever a unit begins their turn. This damage has a seperate chance to freeze a target
+- Shatter - deals medium Ice Damage. If the Target is currently Frozen, dispell the effects
+            and deal a high instance of Ice Damage in Blast(aoe)
 - Sublimate - 
 
 <a name = "water"></a>

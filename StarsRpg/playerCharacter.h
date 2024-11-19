@@ -8,7 +8,7 @@
 #include <string>
 #include <memory>
 #include <vector>
-
+#include <algorithm>
 
 
 class PlayerCharacterDelegate : public StatBlock {   
@@ -53,7 +53,6 @@ public:
 
 	std::vector<Ability> Abilities;
 
-	std::vector<Item*> Inventory;
 
 protected:
 	levelType CurrentLevel;
@@ -220,9 +219,17 @@ class PlayerCharacter
 {
 private:
 	PlayerCharacterDelegate* pcClass;
-	EquipmentDeletage* EquippedArmor[(unsigned long long)ARMORSLOT::NUM_SLOTS];
-	EquipmentDeletage* EquippedWeapon[(unsigned long long)WEAPONTYPE::NUM_SLOTS];
+	Item* EquippedArmor[(unsigned long long)ARMORSLOT::NUM_SLOTS];
+	Item* EquippedWeapon[(unsigned long long)WEAPONTYPE::NUM_SLOTS];
+	std::vector<Item*> Inventory; 
 
+	void cleanup_inventory() {
+		const auto to_remove = std::stable_partition(Inventory.begin(), Inventory.end(),
+			[](const Item* i) ->bool {return !i->getMarkedForDeletion();});
+		std::for_each(to_remove, Inventory.end(), [](Item* i) {delete i;});
+		Inventory.erase(to_remove, Inventory.end());
+	};
+	friend class ItemManager; 
 	
 public:
 	
@@ -253,109 +260,123 @@ public:
 		}
 	}
 	//Getters
-	std::string getClassName() { return pcClass->getClassName(); }
-	levelType getLevel() { return pcClass->getLevel(); }
-	expType getCurrentEXP() { return pcClass->getCurrentEXP(); }
-	expType getEXPToNextLevel() { return pcClass->getEXPToNextLevel(); }
+	std::string getClassName() const { return pcClass->getClassName(); }
+	levelType getLevel() const { return pcClass->getLevel(); }
+	expType getCurrentEXP() const { return pcClass->getCurrentEXP(); }
+	expType getEXPToNextLevel() const { return pcClass->getEXPToNextLevel(); }
 
-	wellType getCurrentHP() { return pcClass->HP->getCur(); }
-	wellType getMaxHP() { return pcClass->HP->getMax(); }
-	wellType getCurrentEnergy() { return pcClass->Energy->getCur() - 1; } //zaczynamy z pust¹ pul¹
-	wellType getMaxEnergy() { return pcClass->Energy->getMax(); }
-	wellType getCurrentStamina() { return pcClass->Stamina->getCur(); }
-	wellType getMaxStamina() { return pcClass->Stamina->getMax(); }
+	wellType getCurrentHP() const { return pcClass->HP->getCur(); }
+	wellType getMaxHP() const { return pcClass->HP->getMax(); }
+	wellType getCurrentEnergy()const { return pcClass->Energy->getCur() - 1; } //zaczynamy z pust¹ pul¹
+	wellType getMaxEnergy() const { return pcClass->Energy->getMax(); }
+	wellType getCurrentStamina() const { return pcClass->Stamina->getCur(); }
+	wellType getMaxStamina()const { return pcClass->Stamina->getMax(); }
 
-	statType getBaseAttack() { return pcClass->getBaseAttack(); }
-	statType getBaseDefence() { return pcClass->getBaseDefence(); }
-	statType getBaseAttunment() { return pcClass->getBaseAttunement(); }
-	statType getBaseWarding() { return pcClass->getBaseWarding(); }
-	statType getBaseSpeed() { return pcClass->getBaseSpeed(); }
+	statType getBaseAttack() const { return pcClass->getBaseAttack(); }
+	statType getBaseDefence() const { return pcClass->getBaseDefence(); }
+	statType getBaseAttunment()const { return pcClass->getBaseAttunement(); }
+	statType getBaseWarding() const { return pcClass->getBaseWarding(); }
+	statType getBaseSpeed() const { return pcClass->getBaseSpeed(); }
 
-	statType getTotalAttack()   { 
+	statType getTotalAttack()const {
 		statType atkFromItems = 0;
 		//z pancerza
 		for (auto i = 0; i < (unsigned long long)ARMORSLOT::NUM_SLOTS; i++) {
 			if (EquippedArmor[i]) {
-				atkFromItems += EquippedArmor[i]->Stats.Attack;
+				Armor* armor = dynamic_cast<Armor*>(EquippedArmor[i]->_data); 
+				atkFromItems += armor->Stats.Attack;
 			}
 		}
 		//z broni
 		for (auto j = 0; j < (unsigned long long)WEAPONTYPE::NUM_SLOTS; j++) {
 			if (EquippedWeapon[j]) {
-				atkFromItems += EquippedWeapon[j]->Stats.Attack;
+				Weapon* weapon = dynamic_cast<Weapon*>(EquippedWeapon[j]->_data);
+				atkFromItems += weapon->Stats.Attack;
 			}
 		}
 
 		return pcClass->getTotalAttack() + atkFromItems; }
-	statType getTotalDefence()  {
+	statType getTotalDefence()const {
 		statType defFromItems = 0;
 		//z pancerza
 		for (auto i = 0; i < (unsigned long long)ARMORSLOT::NUM_SLOTS; i++) { 
 			if (EquippedArmor[i]) {
-				defFromItems += EquippedArmor[i]->Stats.Defence;
+				Armor* armor = dynamic_cast<Armor*>(EquippedArmor[i]->_data);
+				defFromItems += armor->Stats.Defence;
 			}
 		}
 
 		//z broni
 		for (auto j = 0; j < (unsigned long long)WEAPONTYPE::NUM_SLOTS; j++) {
 			if (EquippedWeapon[j]) {
-				defFromItems += EquippedWeapon[j]->Stats.Defence;
+				Weapon* weapon = dynamic_cast<Weapon*>(EquippedWeapon[j]->_data);
+				defFromItems += weapon->Stats.Defence;
 			}
 		}
 		return pcClass->getTotalDefence() + defFromItems; }
-	statType getTotalAttunment(){ 
+	statType getTotalAttunment()const {
 		statType atnFromItems = 0;
 		//z pancerza
 		for (auto i = 0; i < (unsigned long long)ARMORSLOT::NUM_SLOTS; i++) {
 			if (EquippedArmor[i]) {
-				atnFromItems += EquippedArmor[i]->Stats.Attunment;
+				Armor* armor = dynamic_cast<Armor*>(EquippedArmor[i]->_data);
+				atnFromItems += armor->Stats.Attunment;
 			}
 		}
 		//z broni
 		for (auto j = 0; j < (unsigned long long)WEAPONTYPE::NUM_SLOTS; j++) {
 			if (EquippedWeapon[j]) {
-				atnFromItems += EquippedWeapon[j]->Stats.Attunment;
+				Weapon* weapon = dynamic_cast<Weapon*>(EquippedWeapon[j]->_data);
+				atnFromItems += weapon->Stats.Attunment;
 			}
 		}
 		return pcClass->getTotalAttunement() + atnFromItems; }
-	statType getTotalWarding()  { 
+	statType getTotalWarding()const {
 		statType wrdFromItems = 0;
 		//z pancerza
 		for (auto i = 0; i < (unsigned long long)ARMORSLOT::NUM_SLOTS; i++) {
 			if (EquippedArmor[i]) {
-				wrdFromItems += EquippedArmor[i]->Stats.Warding; 
+				Armor* armor = dynamic_cast<Armor*>(EquippedArmor[i]->_data); 
+				wrdFromItems += armor->Stats.Warding; 
 			}
 		}
 		//z broni
 		for (auto j = 0; j < (unsigned long long)WEAPONTYPE::NUM_SLOTS; j++) {
 			if (EquippedWeapon[j]) {
-				wrdFromItems += EquippedWeapon[j]->Stats.Warding;
+				Weapon* weapon = dynamic_cast<Weapon*>(EquippedWeapon[j]->_data); 
+				wrdFromItems += weapon->Stats.Warding;
 			}
 		}
 		return pcClass->getTotalWarding() + wrdFromItems; }
-	statType getTotalSpeed()    { 
+	statType getTotalSpeed()const {
 		statType spdFromItems = 0;
 		//z pancerza
 		for (auto i = 0; i < (unsigned long long)ARMORSLOT::NUM_SLOTS; i++) {
 			if (EquippedArmor[i]) {
-				spdFromItems += EquippedArmor[i]->Stats.Speed; 
+				Armor* armor = dynamic_cast<Armor*>(EquippedArmor[i]->_data);
+				spdFromItems += armor->Stats.Speed;
 			}
 		}
 		//z broni
 		for (auto j = 0; j < (unsigned long long)WEAPONTYPE::NUM_SLOTS; j++) {
 			if (EquippedWeapon[j]) {
-				spdFromItems += EquippedWeapon[j]->Stats.Speed;
+				Weapon* weapon = dynamic_cast<Weapon*>(EquippedWeapon[j]->_data); 
+				spdFromItems += weapon->Stats.Speed;
 			}
 		}
 		return pcClass->getTotalSpeed() + spdFromItems; }
 
-	std::vector<Ability> getAbilityList() const { return pcClass->Abilities; }
+	// const std::vector<Effect> getEffectList(){return pcClass->get }
+	const std::vector<Item*> getInventoryList()const { return Inventory; }
+	const std::vector<Ability> getAbilityList() const { return pcClass->Abilities; }
 
-	EquipmentDeletage* getEquippedArmorAt(unsigned long long i) {
-		 return dynamic_cast<Armor*>(EquippedArmor[i]); 
+	EquipmentDeletage* getEquippedArmorAt(unsigned long long i) const {
+		if (!EquippedArmor[i]) return nullptr;
+		 return dynamic_cast<Armor*>(EquippedArmor[i]->_data); 
 	 }
-	EquipmentDeletage* getEquippedWeaponAt(unsigned long long i) {
-		 return dynamic_cast<Weapon*>(EquippedWeapon[i]);
+	EquipmentDeletage* getEquippedWeaponAt(unsigned long long i) const {
+		if (!EquippedWeapon[i]) return nullptr;
+		 return dynamic_cast<Weapon*>(EquippedWeapon[i]->_data);
 	 }
 	
 
@@ -371,85 +392,10 @@ public:
 	void ApplyBuff(Buff buff) {
 		pcClass->applyBuff(buff);
 	}
-	void ApplyDebuff(Debuff d) {
-		pcClass->applyDebuff(d);
+	void ApplyDebuff(Debuff d) { 
+		pcClass->applyDebuff(d); 
 	}
 
-	// todo : update once inventory implemened
-	bool equip(Item* equip) { 
-		if (!equip) { return false; }
-		if (!equip->GetData()) {
-			return false;
-		}
-
-		Armor* armor = dynamic_cast<Armor*>(equip->_data);
-		if (armor) {
-			unsigned long long slot_num = (unsigned long long)armor->Slot;
-			if (EquippedArmor[slot_num]) {
-				delete EquippedArmor[slot_num];
-				EquippedArmor[slot_num] = nullptr;
-				EquippedArmor[slot_num] = armor;
-			}
-			else {
-				EquippedArmor[slot_num] = armor;
-			}
-		return true;
-		}
-
-		Weapon* weapon = dynamic_cast<Weapon*>(equip->_data); 
-		if (weapon) {
-			unsigned long long slot_num = (unsigned long long)weapon->Slot;
-			if (EquippedWeapon[slot_num]) {
-				delete EquippedWeapon[slot_num]; //powinno iœæ do inventory
-				EquippedWeapon[slot_num] = nullptr;
-				EquippedWeapon[slot_num] = armor;
-			}
-			else {
-				EquippedWeapon[slot_num] = weapon;
-			}
-		return true;
-		}
-		return false;
-	}
-
-
-	bool use(Item* item_to_use) {
-		if (!item_to_use) { return false; } 
-		if (!item_to_use->GetData()) { 
-			return false;
-		}
-
-		Consumable* tmp_con = dynamic_cast<Consumable*>(item_to_use->_data);
-		if (tmp_con) { 
-			if (tmp_con->efc) { 
-				ApplyEffect(*tmp_con->efc); 
-			}
-			//jeœli hp czy stamina s¹ max, lub gdy nie daje buffów
-			//nie u¿ywaæ potek
-			
-
-		 
-			
-		 if (pcClass->HP->isFull() && !tmp_con->efc)
-			 return false;// don't use potion at max Welltype
-
-		 if (pcClass->Stamina->isFull() && !tmp_con->efc)
-			 //return false;	dopóki nie zrobie oddzielnych potek, zakomentowaæ
-
-		 //zwiêksz HP lub/i Stamine, mo¿e byæ ustawione na zero
-		 pcClass->HP->increaseCurrent(tmp_con->well);
-		 pcClass->Stamina->increaseCurrent(tmp_con->well);
-
-		 //consumable zosta³ u¿yty
-		 tmp_con->Quantity--;
-		 
-		 if (tmp_con->Quantity == 0) {
-			 delete tmp_con;
-			 tmp_con = nullptr;
-		 }
-		 return true;
-		}
-	}
 
 	PlayerCharacter() = delete;
 	PlayerCharacter(const PlayerCharacter&) = delete;
