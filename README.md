@@ -162,19 +162,28 @@ NOTATKA - PRZEROBIĆ SYSTEM EFFECT NA BAZOWĄ KLASE DLA BUFF I DEBUFF
           While Frozen, units take reduced Damamge
 - Hail - create a Hazard -> create an Ice Storm, dealing a small ammount of Ice Damage
         whenever a unit begins their turn. This damage has a seperate chance to freeze a target
-- Shatter - deals medium Ice Damage. If the Target is currently Frozen, dispell the effects
-            and deal a high instance of Ice Damage in Blast(aoe)
-- Sublimate - 
+- Shatter - deals medium Ice Damage. If the Target is currently Frozen, dispell the effect
+            and deal a high instance of Ice Damage to the target and nearby Targets (Blast)
+- Sublimate - Inflicts a single Target with Sublimate. Whenever they are attacked by any Entity,
+              they gain a stack of Sublimate, decreasing their Tenacity. At 4 stacks, the next
+               debuff applied is guarenteed to be applied, ignoring any Resistances to it
 
 <a name = "water"></a>
 
 ##### Water
   Core identity: Ultimate's, Stamina and Energy Restoration and Exchange 
-- Passive : Fluidity - 
-- Torrent - 
-- Scald - 
-- Wellspring - 
-- Flux - 
+- Passive : Fluidity - Once per Turn, you can convert a portion of your Stamina into Energy (Ebb), or vice versa (Flow). Gain increased Stamina Capacity, based on Energy Regen Rate.
+  Ultimate abillities now cost Stamina and Energy
+- Torrent - create a Hazard -> summon a Rainstorm, dealing light Water Damage at the beginning
+            of every Foe's Turn; also restore a small percentage of Energy or Stamina for all allies, whichever is currently lower. Lasts 4 turn
+- Scald - gain a Damage bonus based on your Total Energy + Total Stamina, but your every action
+          now drains a portion of those Rescources. This bonus is doubled for Ultimate Damage
+          Lasts 3 turns
+- Wellspring - mark a Target with Wellspring. When they die, cause a big splash of water, dealing light Water damage to nearby targets (Blast), and restoring a portion of Missing Stamina and Energy to the Unit that killed the initial Target. Killing Elite Targets restores
+Stamina and Energy to all allies. When the Target is defeated with an Ultimate, the effects
+trigger twice, at increased Efficiency
+- Flux - buff -> reduce the Energy (and Stamina for Water)cost by 15%, and increase Ultimate
+                Damage by 20%. Reduce Speed by 15% Lasts 2 turns 
 
 
 <a name = "earth"></a>

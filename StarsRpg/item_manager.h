@@ -13,7 +13,7 @@ public:
 		Item* temp_item = new Item(new Weapon(name, cstats, slot, min, max, hand));
 		return temp_item;
 	}
-	//robi przynajmniej 1 consumable, wyra¿enie '? : '
+	//robi przynajmniej 1 consumable, wyraÅ¼enie '? : '
 	static Item* CreateConsumable(std::string name, wellType well = 1u, itemcount q = 1u, Effect* efc = nullptr){
 		
 		Item* temp_item = new Item(new Consumable(name, well, (q == 0) ? 1 : q, efc));
@@ -22,8 +22,8 @@ public:
 	}
 
 
-	//Nak³ada Pancerz lub Broñ, zwraca true. Zwraca false przy nieudanej próbie na³o¿enia
-	//itemu. Jeœli item by³ ju¿ na³o¿ony w danym slocie, zostanie przeniesiony do ekwipunku
+	//NakÅ‚ada Pancerz lub BroÅ„, zwraca true. Zwraca false przy nieudanej prÃ³bie naÅ‚oÅ¼enia
+	//itemu. JeÅ›li item byÅ‚ juÅ¼ naÅ‚oÅ¼ony w danym slocie, zostanie przeniesiony do ekwipunku
 	static bool Equip(Item* item_to_equip, PlayerCharacter* p_char) {
 		if (!item_to_equip->GetData() || !item_to_equip || !p_char) { 
 			return false;
@@ -66,8 +66,8 @@ public:
 			if (tmp_con->efc) {
 				p_char->ApplyEffect(*tmp_con->efc);
 			}
-			//jeœli hp czy stamina s¹ max, lub gdy nie daje buffów
-			//nie u¿ywaæ potek
+			//jeÅ›li hp czy stamina sÄ… max, lub gdy nie daje buffÃ³w
+			//nie uÅ¼ywaÄ‡ potek
 
 
 
@@ -77,13 +77,13 @@ public:
 
 			if (p_char->pcClass->Stamina->isFull() && !tmp_con->efc) 
 				//return false;	
-				// dopóki nie zrobie oddzielnych potek (Stamina i Energia), zakomentowaæ
+				// dopÃ³ki nie zrobie oddzielnych potek (Stamina i Energia), zakomentowaÄ‡
 
-			//zwiêksz HP lub/i Stamine, mo¿e byæ ustawione na zero
+			//zwiÄ™ksz HP lub/i Stamine, moÅ¼e byÄ‡ ustawione na zero
 				p_char->pcClass->HP->increaseCurrent(tmp_con->well); 
 				p_char->pcClass->Stamina->increaseCurrent(tmp_con->well); 
 
-			//consumable zosta³ u¿yty
+			//consumable zostaÅ‚ uÅ¼yty
 			tmp_con->Quantity--;
 
 			if (tmp_con->Quantity == 0) {
