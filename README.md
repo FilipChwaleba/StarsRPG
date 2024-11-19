@@ -103,6 +103,7 @@ NOTATKA - PRZEROBIĆ SYSTEM EFFECT NA BAZOWĄ KLASE DLA BUFF I DEBUFF
  - [Ice](#ice)  
  - [Water](#water)
  - [Earth](#earth)
+ - [Electric](#electric)
  - [Steel](#steel)
  - [Nature](#nature)
  - [Sand](#sand)
@@ -190,11 +191,24 @@ trigger twice, at increased Efficiency
 
 ##### Earth
   Core identity: Increased Aggro, Overshield creation and destruction, 'Defence through Offence'
- - Passive : Unyielding - 
- - Impale - 
- - Stabilize - 
- - Fracture - 
- - Quake - 
+ - Passive : Unyielding - At the start of your turn, generate a small ammount of personal Overshielding. Whenever you have an Overshield, enemy Units are more likely to Attack you
+ - Impale - create a cluster of Rock Spikes, dealing medium Earth Damage to a single enemy, and apply a stack of Impale, lasting for 4 turns. Debuff->  Applying additional stacks won't refresh the duration. When Impale ends, the target takes a portion of the initial Damage of the Keyword again, and all allies receive an Overshield. The Strength of the Damage and Shield are based on Impale Stacks. 
+ - Stabilize - a buff-> grant medium size Overshield to a single ally. Whenever enemies attack them, they receive stacks of Impale. Shield duration 3 turns  
+ - Fracture - a buff -> whenever you or any ally have their Overshield destroyed, deal a Medium ammount of Earth damage back to the attacker. This effect has a chance to trigger Impale, and deals double damage to targets that have Overshields
+ - Quake - deal a Small ammount of Earth damage to all enemies (AoE). Whenever they posses any Impale stacks, consume each stack and deal a set ammount of Earth Damage to them. Each Damage instance gains a %Damage Bonus, based on your current Overshield
+
+<a name = "electric"></a>
+##### Electric
+  
+  Core identity : Speed, multiple actions per Cycle, 'Conserving Momentum'
+- Passive : Amplify - 
+- Jolt - 
+- Dynamo - 
+- Galvanize - 
+- Voltage - 
+
+
+
 
 <a name = "steel"></a>
 
