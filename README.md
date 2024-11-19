@@ -201,11 +201,12 @@ trigger twice, at increased Efficiency
 ##### Electric
   
   Core identity : Speed, multiple actions per Cycle, 'Conserving Momentum'
-- Passive : Amplify - 
-- Jolt - 
-- Dynamo - 
-- Galvanize - 
-- Voltage - 
+- Passive : Amplify - Whenever you land an Attack on an enemy, gain a Stack of Aplified
+        buff -> Each Stack of Amplified grants you increased Speed. At max Stacks, you are guarenteed to take Action at the end of the Action Order. Defeating enemies grants 2 stacks. Getting hit with an Attack depletes 2 stacks. Lasts 2 turns, afterward each turn loose 1 stack of Amplify until you strike a Target again
+- Jolt - a debuff -> hitting the affected Target spreads chain lightning to other nearby Targets, dealing medium Electric Damage to them. Lasts 2 turns
+- Dynamo - a buff -> increase the affected Unit's Speed by a percentage. Whenever Amplify reaches max stacks, refresh Dynamo's duration and gain an Electric Damage% Bonus, based on your current Speed. Lasts 3 turns
+- Galvanize - a buff -> whenever an Enemy hits you, deal a small ammount of Electric Damage to them. If they dispell any number of Amplified stacks during said Attack, the damage dealt increases in proportion to the stacks lost, and their Attack is also Lowered for 2 turns. Buff duration 3 turns
+- Voltage - deal medium Electric Damage to a Target and other nearby Targets (Blast). If you currently have 5 stacks of Amplified, an Electrical Current surrounds you, procing this effect again every time your Action begins. Lasts for 3 turns or when all stacks of Amplified are lost
 
 
 
