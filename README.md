@@ -9,13 +9,13 @@
 ### Stats (primary)
  - <b>Attack</b> - increase Weapon Damage, primary multiplier
  - <b>Defense</b> - decrease Weapon damage taken by a percantege, based on this
- ============================================================
+ ========================================================
  - <b>Attunment</b> - incease Elemental Damage, primary multiplier
  - <b>Warding</b> - decrease Elemental Damage taken by a percantege, based on this
- ============================================================
+ ========================================================
  - <b>HitPoints</b> - how much Damage you can take before Fainting
  - <b>Speed</b> - increase how often you take Action, and how high your Initial Action Order is
-============================================================
+========================================================
  - <b>Crit Damage</b> - increase all Critical Damage dealt
  - <b>Crit Rate</b> - increase the chance for all [non-DoT and non-Hazard DMG] to Crit 
  
@@ -24,21 +24,22 @@
 #### Stats (additional)
 
 - <b>Resistance</b> - reduce damage taken, based if damage/enemy is <b>Luminous, Astral, or Entropic</b>
-============================================================
+========================================================
  - <b>Precision</b> - increase the chance to land an Attack
  - <b>Evasion</b> - decrease the chance of being hit by an Attack
- ============================================================
+ ========================================================
  - <b>Focus</b> - increase the chance to Apply a Debuff 
  - <b>Tenacity</b> - decrease the chance to Be Applied with a Debuff
- ============================================================
+ ========================================================
  - <b>DMG Bonus</b> - multiplicatively increase all Elemental Damage dealt
- ============================================================
+ - <b>[element]DMG Bonus</b> - same as above, applied only to a Single Element
+ ========================================================
  - <b>Energy Regen Rate</b> - increase the ammount of Energy gained when restoring Energy
- - <b>Energy Capacity</b> - how much Energy does your Ultimate cost
- ============================================================
+ - <b>Energy Capacity</b> - how much Energy does your Ultimate cost (constant)
+ ========================================================
  - <b>Stamina Regen Rate</b> - increase the ammount of Energy gained when restoring Stamina
  - <b>Stamina Capacity</b> - how much Stamina you can Carry
- ============================================================
+ ========================================================
 
 
 NOTATKA - PRZEROBIĆ SYSTEM EFFECT NA BAZOWĄ KLASE DLA BUFF I DEBUFF
@@ -215,10 +216,10 @@ trigger twice, at increased Efficiency
 
 ##### Steel
   Core identity: Tank, Defence Manipulation, Team Protection
-- Passive : Ironclad - 
+- Passive : Ironclad - Increase Defence and Warding gained from all sources by a percentage, based on Level. When an Action Cycle begins, restore a small ammount of Health based on Defence or Warding, whichever is currently higher 
 - Refine - 
-- Snare - 
-- Adamant - 
+- Snare - a debuff -> the affected Target is slowed. Whenever they take damage while affected by this Keyword, they loose all Overshields they currently possess. This effect is applied in Blast. Lasts 2 turns
+- Adamant - a buff -> increase Defence by a medium ammount, and lower Warding by that same ammount. When an Enemy attacks you for the first time, based on the type of Damage they dealt to you, deal either Physical or Steel Damage back to them, based on Defence or Warding, respectively. If the Effect deals Steel Damage, swap the Warding and Defence changes, and if it deals Physical Damage, revert to original state. Lasts 3 turns
 - Corrode - 
 
 <a name = "nature"></a>
