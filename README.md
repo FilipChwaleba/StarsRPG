@@ -217,11 +217,10 @@ trigger twice, at increased Efficiency
 ##### Steel
   Core identity: Tank, Defence Manipulation, Team Protection
 - Passive : Ironclad - Increase Defence and Warding gained from all sources by a percentage, based on Level. When an Action Cycle begins, restore a small ammount of Health based on Defence or Warding, whichever is currently higher 
-- Refine - 
+- Refine - a buff -> the Target ally gain an Overshield, based on the whole Party's Defence, if the Target wields a Luminous Element, or Warding for an Astral Element. Then, all other allies gain a small increase in their Defence or Warding, based on thier Element 
 - Snare - a debuff -> the affected Target is slowed. Whenever they take damage while affected by this Keyword, they loose all Overshields they currently possess. This effect is applied in Blast. Lasts 2 turns
-- Adamant - a buff -> increase Defence by a medium ammount, and lower Warding by that same ammount. When an Enemy attacks you for the first time, based on the type of Damage they dealt to you, deal either Physical or Steel Damage back to them, based on Defence or Warding, respectively. If the Effect deals Steel Damage, swap the Warding and Defence changes, and if it deals Physical Damage, revert to original state. Lasts 3 turns
-- Corrode - 
-
+- Adamant - a buff -> increase Defence by a medium ammount, and lower Warding by that same ammount. When an Enemy attacks you for the first time, based on the type of Damage they dealt to you, deal either Physical or Steel Damage back to them, based on Defence or Warding, respectively. If the Effect deals Steel Damage, swap the Warding and Defence changes, and if it deals Physical Damage, keep the original state. Lasts 3 turns
+- Corrode - a debuff -> shred a small percantage of the Target's Defence or Warding, based on their Element. After the Keyword ends, a percantage of all the Damage the Target has received will be dealt to them again; that percentage is based on the Diffirence between your and their Defence/Warding (does not matter whose diffirence is higher). If the Diffirence is higher than 35%, the Defence/Warding shred grows and lasts until the battle ends. Otherwise, lasts 3 turns
 <a name = "nature"></a>
 
 ##### Nature
@@ -249,11 +248,11 @@ trigger twice, at increased Efficiency
 
 ##### Fire
   Core identity : Extended Combat, Self-sustain, Explosions
-  - Passive : Heat - 
-  - Scorch - 
-  - Radiant - 
-  - Ignite - 
-  - Zeal - 
+  - Passive : Heat - a buff -> when the Units Stamina reaches below 20%, grants them 1 stack of Heat. While Heat is active, the Unit gains a Damage Buff based on their Level and Base Attack, and also recovers Stamina when Attacks strike Targets. Each additional Stack double's the Stamina recovered. Max 3 stacks, new stacks refresh duration, lasts 2 turns.
+  - Scorch - a DoT -> deal Fire Damage at the beginning of the Targets turn. Each stack increases the Damage of the Keyword. When you reach Max Stacks, end this effect and trigger Ignite(if locked, this will not trigger). Lasts 3 turns, new stacks refresh, max 5 Stacks
+  - Radiant - a buff -> increase the Targets Attack and Attunement by a medium ammount. The Target and other nearby Targets gain 1 stack of Heat, even if they don't wield Fire. Lasts 2 turns.
+  - Ignite - a damaging explosion dealing a Medium ammount of Fire Damage in Blast. This Damage partially ignores defensive Stats, and scales off of total Attack and Attunement. 
+  - Zeal - a buff -> whenever any Ally performs an Attack, restore a small ammount of HP; there is a small chance for you to gain a stack of Heat. When a Target that posseses 3 stacks of Heat and Zeal dies, they revive with 50% of their Max HP. This can only occur once per battle, per Unit
 
 <a name = "shadow"></a>
 
