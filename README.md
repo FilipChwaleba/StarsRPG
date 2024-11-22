@@ -177,7 +177,7 @@ NOTATKA - PRZEROBIĆ SYSTEM EFFECT NA BAZOWĄ KLASE DLA BUFF I DEBUFF
 - Passive : Fluidity - Once per Turn, you can convert a portion of your Stamina into Energy (Ebb), or vice versa (Flow). Gain increased Stamina Capacity, based on Energy Regen Rate.
   Ultimate abillities now cost Stamina and Energy
 - Torrent - create a Hazard -> summon a Rainstorm, dealing light Water Damage at the beginning
-            of every Foe's Turn; also restore a small percentage of Energy or Stamina for all allies, whichever is currently lower. Lasts 4 turn
+            of every Foe's Turn; also restore a small percentage of Energy or Stamina for all allies, whichever is currently lower. Lasts 4 turn or when a new Hazard is created
 - Scald - gain a Damage bonus based on your Total Energy + Total Stamina, but your every action
           now drains a portion of those Rescources. This bonus is doubled for Ultimate Damage
           Lasts 3 turns
@@ -222,7 +222,7 @@ trigger twice, at increased Efficiency
 - Adamant - a buff -> increase Defence by a medium ammount, and lower Warding by that same ammount. When an Enemy attacks you for the first time, based on the type of Damage they dealt to you, deal either Physical or Steel Damage back to them, based on Defence or Warding, respectively. If the Effect deals Steel Damage, swap the Warding and Defence changes, and if it deals Physical Damage, keep the original state. Lasts 3 turns
 - Corrode - a debuff -> shred a small percantage of the Target's Defence or Warding, based on their Element. After the Keyword ends, a percantage of all the Damage the Target has received will be dealt to them again; that percentage is based on the Diffirence between your and their Defence/Warding (does not matter whose diffirence is higher). If the Diffirence is higher than 35%, the Defence/Warding shred grows and lasts until the battle ends. Otherwise, lasts 3 turns
 <a name = "nature"></a>
-
+//slight rework needed
 ##### Nature
   Core identity: Stamina Economy, Consume HP to Restore/Ignore Stamina
 - Passive : Bloom - 
@@ -232,7 +232,7 @@ trigger twice, at increased Efficiency
 - Overgrowth -  
 
 <a name = "sand"></a>
-
+//additional keyword needed
 ##### Sand
   Core identity: Missing Attacks, Increased Tenacity, Proactive Defence
  - Passive : Conceal - 
@@ -258,21 +258,23 @@ trigger twice, at increased Efficiency
 
 ##### Shadow
   Core identity : Disrupt Enemies, Dodge Attacks, Crit Rate 
-  - Passive : Wraith - 
-  - Engulf - 
-  - Lurk - 
-  - Obscure - 
-  - Veiled - 
+  - Passive : Wraith - gain additional Evasion, scaling with your Crit Rate. After successfully dodging an Attack, gain a boost to Crit DMG, based on level. Lasts 1 turns.
+  - Engulf - a debuff -> the Target cannot Expend or Regenerate Energy or Stamina. Their Precision is also slightly lowered. Lasts 3 turns
+  - Lurk - a buff -> when the Target's turn begins, forcefully end it immidietly. If thier HP does not decrease until their next Turn, gain a Large bonus to Crit Rate, lasting until you take Damage
+  - Obscure - create a Hazard -> whenever an Enemy launches an Attack, there is a small chance for them to take a small ammount of Shadow Damage. If the Damage occurs, their next Attack is guarenteed to miss. Attacks agains Shadow type Units increase the chance of the Damage triggering. Lasts 3 turns or when a new Hazard is created
+  - Veiled - a buff -> turn the Target Invisible : until they Take Damage or launch an Attack, they cannot be targeted by Attacks. Launching an Attack from this state guarentees the Attack to Critically Strike, and triggers Wraith if the Target wields the Shadow Element.
+
+    Note - you can use Blast Attacks, AoE Attacks, DoT's and Hazards to end Veiled easily
 
 <a name= "nightmare"></a>
 
 ##### Nightmare
   Core identity : High AoE Damage, Spread debuffs upon Death
-  - Passive : Torment - 
-  - Miasma - 
-  - Macabre - 
-  - Dread - 
-  - Apparition - 
+  - Passive : Torment - Whenever a Target is hit with 2 instances of Nightmare Damage or Nightmare Debuffs, an explosion below them procs, dealing a Blast instance of Light Nightmare DMG. This effect has an Internal Cooldown of 1 turns per Target
+  - Miasma - a debuff -> when the Target takes Ultimate or Nightmare Damage, detonate all stacks of this Keyword, dealing light Nightmare Damage, additional Stacks increse the Damage dealt. This Damage partially ignores Warding. Max 3 stacks, lasts 2 turns
+  - Macabre - a debuff -> when the Target is defeated, they unleash an AoE explosion, dealing very Light Nightmare Damage. Then, spread all debuffs applied to the defeated Target to all other Hit Targets, and apply them a Stack of Miasma. No duration limit
+  - Dread - a buff -> gain a Large bonus to Attunment, but decrease your Precision. While the buff lasts, all of your Attacks now deal an Additional instance of Nightmare Damage, based on Current Attunment and Level. Missing an Attack or taking Ulitmate Damage ends this Effect early. When this Keyword ends, a medium instance of Nightmare Damage is dealt to you. Lasts 3 turns 
+  - Apparition - create a Dreadful Illusion on the Action Order, with base Speed and HP based on your Level. If the Illusion get's destroyed by Enemies, or when it's turn begins, it explodes, dealing Medium Nightmare AoE Damage. All Damaged Targets have a chance to be applied with a Nightmare Keyword; each Target hit increases this chance.
 
 <a name = "light"></a>
 
@@ -294,13 +296,17 @@ trigger twice, at increased Efficiency
   - Dissolve - 
 <a name = "wind"></a>
 
+Note - potrzeba Reworku Keywordów dla lepszej synergii między nimi
+
 ##### Wind
   Core identity : Action Order Manipulation/Advance
-  - Passive : U-Turn - 
-  - Wind Shear - 
-  - Vortex - 
-  - Tailwind - 
-  - Gale - 
+  - Passive : U-Turn - whenever you Advance an Ally's Action forward, or delay an Enemy's Action, gain a stack of U-Turn. At 4 stacks, swap two selected Units(ally or foe) position in the Action Order. That position is now locked, regardless of Speed changes, for 1 Action Cycle.
+  - Wind Shear - a DoT -> deal light Wind Damage to a single Target. When the Keyword reaches Max Stacks, immidietly take Action and reduce the number of Stacks to 1. Max 5 stacks, new stacks refresh Duration, lasts 3 turns.
+  - Vortex - create a Hazard -> at the Beginning and End of the Action Cycle, deal light Wind Damage to all Enemy Targets and heal all Allies by a small ammount. Whenever any Action gets Advanced or Delayed, that Advancment or Delay gets increased by 20%. Lasts 3 turns or when a new Hazard is created
+  - Tailwind - a buff -> cause the Target to immidietly take Action and gain a Damage Bonus based on your Speed. This Keyword can affect the Same Target once every Action Cycle, and cannot affect the Caster. Damage buff lasts 1 turn.
+  - Gale - a Blast explosion dealing medium Wind Damage. If any Targets hit have experienced any Action Advancment or Delay in this Action Cycle, this Keyword deals double Damage, and Advances your Action forward.
+
+Note -> zmiana efektu Vortex na tworzenie Hazardu zamiast AoE explozji
 <a name = "blood"></a>
 
 ##### Blood
