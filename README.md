@@ -325,13 +325,19 @@ Note -> zmiana efektu Vortex na tworzenie Hazardu zamiast AoE explozji
 
   ##### Void
    Core identity : Abillity Suppression, Abillity Augmentation, Stat Buff Nullification
-   - Passive : - Potential - 
-   - - Potential -> Accretion
-   - - Potential -> Anomaly
-   - - Potentail -> Singularity
-   - Silence - 
-   - Disperse - 
-   - Volatile - 
+   - Passive : - Potential - Whenever anz Ally completes an Action, gain 1 stack of Potential. At 15 stacks, augment your next abillity, inflicting an Additional Effect, based on the abillities Target. Afterwards, reduce Potential stacks to 0
+   - - Potential -> Accretion:
+     - - - vs Enemies : create a dimensional Rip, dealing Medium AoE Void Damage to All Enemies. Non-Boss enemies below 15% HP have a chance to be Executed
+     - - - vs Allies : create a Hazard -> conjure an Ergosphere, drastically increasing all Allies Speed and initially advancing their Action Forward, but draining a small ammount of Health from them at the beginning of their Turn
+   - - Potential -> Anomaly:
+   - - - vs Enemies : deal light Void AoE Damage and apply them with the Anomaly Effect. Whenever Targets afflicted by Anomaly possess or gain Debuffs / Debuffing Keywords, that have stacks, the stack count is doubled. Also, being applied with any debuff will refresh ALL debuff's durations. Stacks cannot overcap (at base). Lasts 3 turns
+   - - - vs Allies : the next Ally Target that you affect restores 100% of their Max Energy. You loose all of your Current Energy, and cannot gain Energy until the next Action Cycle.
+   - - Potentail -> Singularity:
+   - - - vs Enemies : the main Target of your next Attack gets applied with the Singularity Effect. Whenever any Enemy takes damage, the Target with Singularity takes a portion of that Damage again as Void Damage. Lasts 2 turns
+   - - - vs Allies : the main Target of your next Action gets applied with the Nucleus Effect. Whenever any buffs are applied to Any Ally, the unit with The Effect also receives them. They also recover a small ammount of Energy at the start of their Turn. Lasts 3 turns 
+   - Silence - a debuff -> prevent the Target from using their Ultimate and Skills. If they possess maximum Energy or Stamina, gain 1 stack of Potential. Lasts 1 turn
+   - Disperse - a buff -> fashion a Void Shell for a single ally Target, blocking the next instance of Damage taken.
+   - Volatile - a debuff -> create a Delayed Explosion 
    - Nullify - 
 
   <a name = "imaginary"></a>
