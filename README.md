@@ -311,11 +311,11 @@ Note -> zmiana efektu Vortex na tworzenie Hazardu zamiast AoE explozji
 
 ##### Blood
   Core identity : Convert Energy into HP, use HP as a Rescource, heal and loose HP
-  - Passive : Rot - 
-  - Overheal - 
-  - Ferocity - 
-  - Rage - 
-  - Garrote - 
+  - Passive : Rot - Convert all of your Energy into Additonal Max HP; any additional Energy gained from any source is converted into healing. Every type of Action now costs HP to use instead of Energy or Stamina. Your Ultimate is now used with Stamina. HP to Energy conversion Ratio = 1:8. All of your attacks gain Lifesteal, based on your Level and Max HP
+  - Overheal - a buff -> whenever any healing received surpasses your Max HP pool, the excess is converted into an Overshield. Whenever you gain an Overshield, restore a set ammount of Stamina. Overshield lasts until broken. Lasts 3 turns.
+  - Ferocity - a debuff -> whenever a Target with this Keyword is defeated, the Unit that landed the Final Blow restores a percentage of their Max Stamina and have their Action Advanced.
+  - Rage - a buff -> whenever you loose or gain HP, gain a stack of Rage. Each stack of Rage slightly increases your Attack and Defence. When your turn begins, loose 2 stacks of Rage. Max 25 stacks, lasts 1 turn (no need for duration as Stacks naturally fall-off)
+  - Garrote - a debuff -> whenever the affected Target is hit, reduce their Action Order by 1. When their turn begins, they take Medium Single Target Blood Damage, each time any Unit took Action before them. This effect ends after the Damage triggers
 
   <b>=================================================</b>
 
@@ -328,7 +328,7 @@ Note -> zmiana efektu Vortex na tworzenie Hazardu zamiast AoE explozji
    - Passive : - Potential - Whenever anz Ally completes an Action, gain 1 stack of Potential. At 15 stacks, augment your next abillity, inflicting an Additional Effect, based on the abillities Target. Afterwards, reduce Potential stacks to 0
    - - Potential -> Accretion:
      - - - vs Enemies : create a dimensional Rip, dealing Medium AoE Void Damage to All Enemies. Non-Boss enemies below 15% HP have a chance to be Executed
-     - - - vs Allies : create a Hazard -> conjure an Ergosphere, drastically increasing all Allies Speed and initially advancing their Action Forward, but draining a small ammount of Health from them at the beginning of their Turn
+     - - - vs Allies : create a Hazard -> conjure an Ergosphere, drastically increasing all Allies Speed and initially advancing their Action Forward, but draining a small ammount of Health from them at the beginning of their Turn. Lasts 2 turns, or until a new Hazard is created
    - - Potential -> Anomaly:
    - - - vs Enemies : deal light Void AoE Damage and apply them with the Anomaly Effect. Whenever Targets afflicted by Anomaly possess or gain Debuffs / Debuffing Keywords, that have stacks, the stack count is doubled. Also, being applied with any debuff will refresh ALL debuff's durations. Stacks cannot overcap (at base). Lasts 3 turns
    - - - vs Allies : the next Ally Target that you affect restores 100% of their Max Energy. You loose all of your Current Energy, and cannot gain Energy until the next Action Cycle.
@@ -337,18 +337,18 @@ Note -> zmiana efektu Vortex na tworzenie Hazardu zamiast AoE explozji
    - - - vs Allies : the main Target of your next Action gets applied with the Nucleus Effect. Whenever any buffs are applied to Any Ally, the unit with The Effect also receives them. They also recover a small ammount of Energy at the start of their Turn. Lasts 3 turns 
    - Silence - a debuff -> prevent the Target from using their Ultimate and Skills. If they possess maximum Energy or Stamina, gain 1 stack of Potential. Lasts 1 turn
    - Disperse - a buff -> fashion a Void Shell for a single ally Target, blocking the next instance of Damage taken.
-   - Volatile - a debuff -> create a Delayed Explosion 
-   - Nullify - 
+   - Volatile - a debuff -> create a Delayed Explosion on the Target. Depending on the Targets tier, the explosion will take additional Turns to Detonate (up to 3). Each turn spent charging will increase the Damage dealt. A maximum charge will grant 3 stacks of Potential
+   - Nullify - an effect -> a random Stat (excluding HP, Energy and Stamina) will be 'Negated'. When a numerical(int) Stat is negated, they are set to their Base, while a percent% (float) Stat has it's value set to 0%. This Effect cannot be cleansed. Lasts 2 turns
 
   <a name = "imaginary"></a>
 
  ##### Imaginary
   Core identity : Randomness, Debuff Accumulation, Keyword Self-Procing/ Chain Reaction effects
-   - Passive : Inspiration - 
-   - Dazzle - 
-   - Spectrum - 
-   - Partition - 
-   - Paragon
+   - Passive : Inspiration - whenever you or an ally apply a debuff to an enemy Target, gain a stack of Inspiation. Each stack increases your Focus and gives you a DMG% Bonus against debuffed Targets. At max Stacks, your next Attack will Strike ALL enemy Targets, and reduce Inspiration stacks to 0 afterwards.
+   - Dazzle - a debuff -> an Instance of Single Target Imaginary Damage, decreasing Tenacity of the Target hit by a small ammount. For every debuff on the Target, there is a chance for this Keyword to trigger again, up to 3 times. Stacks up to 10 times, lasts 2 turns.
+   - Spectrum - an effect -> after you attack a Target, you both enter the Rainbow Spectrum state. Whenever any of you take Action, a random color out of 7 will be selected for the both of you, giving you and your Linked Target positive or negative effects. This state can trigger up to 3 times, and ends early in any of you are Defeated.
+   - Partition - an effect -> This Keyword function diffirently based on its Target. If it's an Enemy, convert their most recently received Buff into a Random Debuff. If it's an Ally, convert their most recently received Debuff into a Random Buff. There is a small chance for this Keyword to activate again.
+   - Paragon - whenever you strike an Enemy that has an equal ammount of Debuffs to your current Buffs, enter the Paragon state : immidietly take Action again, your next Attack will deal a Portion of it's damage again. The additional Damage is dealt for the sum of all debuffs currently applied to all enemy Targets. Whenever a Target is hit with an Instance of Additional damage, dispel 1 debuff from them. The Paragon State ends when any Enemy Target looses all of its debuff or is defeated. The Paragon state can be entered once every 3 turns, after it ends
   <a name = "quantum"></a>
 
  ##### Quantum
@@ -362,20 +362,20 @@ Note -> zmiana efektu Vortex na tworzenie Hazardu zamiast AoE explozji
 
  ##### Spirit
   Core identity : Single Target Damage, Precision, Crit Damage
-  - Passive : Verity - 
-  - Essence - 
-  - Sunder - 
-  - Zen - 
-  - Mindstorm - 
+  - Passive : Verity - For every Precision above 100% convert it into additional Crit DMG. Whenever you land a Critical Hit, apply Verity to the Target. If any ally were to miss their Attack against a Target marked with Verity, consume Verity to guarentee the Attack to strike
+  - Essence - a buff -> hitting Targets grants stacks of Essence, slightly increasing your Precision. Upon reaching max Stacks, your last attacked Target is applied with Verity automatically. Stacks are lost upon switching Targets. Max 6 stacks
+  - Sunder - Deal an instance of Medium Single Target Spirit Damage. If the Target is affected by Verity, end it immidietly to deal a portion of that Damage again, and push them out of the current Action Cycle. 50% effective vs Bosses
+  - Zen - a buff -> gain a small Attack bonus, but slightly decrease your Precision. If in the next 2 turns you don't miss any Attack, gain an additional Stack of this Keyword, refreshing its duration, and gaining a Large bonus to Attack and Precision. Lasts 2 turns
+  - Mindstorm - an effect -> mark a single Target as 'Soul-Struck'. Every time you Attack the Marked Target, a Soul-Ripping Stilleto will appear above them. When the Mark ends, each Stilleto will explode, dealing Medium Single Target Spirit Damage. Enemies affected by Verity always take Critical Damage from this Keyword
   <a name = "fission"></a>
 
  ##### Fission
   Core identity : Constant Energy Consumption, Glass Cannon, Radioactive
-  - Passive : Deconstruct - 
-  - Assimilate - 
+  - Passive : Deconstruct - whenever you start your turn with 100% of your Energy, loose a % of your Max HP. The HP drain will continue to ramp up with every turn. Gain increased Energy Regen Rate based on Missing Health
+  - Assimilate - deal a Small instance of Blast Fission Damage, and immidietly end ALL elemental keywords currently applied to all Targets hit, from all sources. For each keyword cleansed, restore a set ammoung of Energy and increase the Damage of your next Attack
   - Feedback - 
-  - Synthesize - 
-  - Discharge - 
+  - Synthesize - a buff -> consume 20% of the Targets Current Energy, gaining a DMG% multiplier per each point of Energy consumed in this way. If in the next Attack you defeat a Target, restore 50% of the consumed Energy. This Keyword can be cast without ending your turn, and can be self-casted.
+  - Discharge - a debuff -> apply a single Target with this Keyword. Every time they are Attacked, they gain a Stack of Discharge. At max Stack, proc Assimilate and then release an Additional Explosion, dealing High Blast Fission Damage. This explosion benefist from Assimilate's Damage buff
   <a name = "eclipse"></a>
  
  ##### Eclipse
