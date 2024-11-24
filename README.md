@@ -280,11 +280,11 @@ trigger twice, at increased Efficiency
 
 ##### Light
   Core identity : Support, Healing, Debuff Cleansing
-  - Passive : Coalescence - 
-  - Enlighten - 
-  - Consecrate - 
-  - Oath - 
-  - Illuminate - 
+  - Passive : Coalescence - when any ally if affected by a Light Keyword, they gain an Orb of Hope, recording all healing received, including overhealing. When the current Action Cycle ends, the Orb explodes, dealing Single Target Light Damage to the enemy with the highest current Health on-field
+  - Enlighten - a buff -> whenever the buffed Target lands attacks they heal a small ammount of their Max HP and reduce this Keyword's stacks by 1. Starts with 8 stacks, each Target hit depletes a stack. Lasts 4 turns 
+  - Consecrate - create a Hazard -> all allies can resist up to 3 debuff applications while this Hazard lasts. When a new Action Cycle begins, heal all allies for a moderate ammount, based on your Attunment. Lasts 3 turns, or when a new Hazard is created.
+  - Oath - a buff -> restore a Medium ammount of Health to a single Target on the initial cast. At the beginning of the Targets turn the Heal is reapplied. If the healed Targets posseses any debuffs, cleanse the latest one applied and add a single turn to this Keywords duration. Lasts 3 turns, max 5 turns.
+  - Illuminate - a debuff -> all Targets affected have their Precision and Attunement lowered. Whenever allies attack Targets affected by this Keyword, they restore a Moderate ammount of Health, per hit. When any enemy is defeated with this Keyword, is will spread to 1 unaffected Target. Lasts 2 turns.
 <a name = "poison"></a>
 
 ##### Poison
