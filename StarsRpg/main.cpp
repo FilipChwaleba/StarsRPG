@@ -95,13 +95,8 @@ int main() {
 	ItemManager::Equip(Sword, &p4);
 
 
-
-
-
-
-
 	//BUFF
-	Buff shield("Overshield", CoreStats(10, 0, 0, 0, 4), 3, false);
+	Buff shield("Overshield", CoreStats(10, 0, 0, 0, 4), 3);
 	p4.ApplyBuff(shield);
 
 	//PrintCharacter(p1); 

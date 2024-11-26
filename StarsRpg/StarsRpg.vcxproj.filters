@@ -23,31 +23,31 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PointWell.h">
+    <ClInclude Include="include\StarsRpg\PointWell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="statblock.h">
+    <ClInclude Include="include\StarsRpg\statblock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="playerCharacter.h">
+    <ClInclude Include="include\StarsRpg\playerCharacter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="abillity.h">
+    <ClInclude Include="include\StarsRpg\abillity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="buff.h">
+    <ClInclude Include="include\StarsRpg\buff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="types.h">
+    <ClInclude Include="include\StarsRpg\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="corestats.h">
+    <ClInclude Include="include\StarsRpg\corestats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="item.h">
+    <ClInclude Include="include\StarsRpg\item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="item_manager.h">
+    <ClInclude Include="include\StarsRpg\item_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
