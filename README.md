@@ -235,10 +235,12 @@ trigger twice, at increased Efficiency
 //additional keyword needed
 ##### Sand
   Core identity: Missing Attacks, Increased Tenacity, Proactive Defence
- - Passive : Conceal - 
- - Mirage - 
- - Squall - 
- - Sink - 
+ - Passive : Conceal - Every time an enemy Target misses an Attack, or fails to deal damage to an allied Target (damage dealt = 0) that has received buffs from you, gain a stack of Conceal. At 6 stacks grant a Single allied Target the Vanish status
+ -  - Vanish - an Effect -> negate all damage taken, and resist all debuffs application. Lasts until the end of the current Action Cycle
+ - Mirage - a buff -> increase ally Target Tenacity by a percentage. While this Keyword lasts, ally Evasion now increases based on their current Tenacity, up to a limit. Lasts 3 turns
+ - Squall - a debuff -> deal a small ammount of Single Target Sand Damage, and reduce the Targets Precision by a percentage based on Level. Additional Stacks increase damage dealt and reduce Precision further Stacks up to 5 times, lasts 2 turns.
+ - Sink - a dubeff -> deal a small ammount Sand Damage at the start of the Targets turn. Whenever they don't launch an Attack, or don't deal any Damage, this Keyword gains a stack and the Targets Action Cycle Order is lowered. If the enemy happens to become the last Unit in the Action Cycle, deal an instance of High Blast Sand Damage to them and end this Keyword immidietly. Stacks 10 times, lasts 4 turns.
+ - Sandstorm - create a Hazard -> at the beginning of the Action cycle, apply all enemies with a stack of Squall. Whenever anyone on the battlefield misses an Attack, this Hazard's action is progressed forward, from the last position of the current Action Cycle. When this Hazard takes action, it will apply all enemies with Squall again. Lasts 4 turns, or until a new Hazard has been created
 
 <b>=================================================</b>
 
