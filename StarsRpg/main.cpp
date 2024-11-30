@@ -95,13 +95,8 @@ int main() {
 	ItemManager::Equip(Sword, &p4);
 
 
-
-
-
-
-
 	//BUFF
-	Buff shield("Overshield", CoreStats(10, 0, 0, 0, 4), 3, false);
+	Buff shield("Overshield", CoreStats(10, 0, 0, 0, 4), 3);
 	p4.ApplyBuff(shield);
 
 	//PrintCharacter(p1); 
@@ -109,6 +104,7 @@ int main() {
 	//PrintCharacter(p3);
 	PrintCharacter(p4);
 
+/*
 	cout << "\nHP before taking damage: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
 	p4.takeDamage(10);
 	cout << "HP after damage: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
@@ -140,7 +136,7 @@ int main() {
 		for (auto it : inv) {
 			cout << " -" << *it << "  ";
 		}
-	}
+	}*/
 	cout << "HP after other potions: " << p4.getCurrentHP() << "/" << p4.getMaxHP() << endl;
 	
 	return 0;

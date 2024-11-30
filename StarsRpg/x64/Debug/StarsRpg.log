@@ -1,0 +1,19 @@
+﻿  item_manager.cpp
+C:\Users\Filip\OneDrive\Pulpit\FILIP\PROJEKTY\Visual Studio\StarsRPG-master\StarsRPG-master\StarsRpg\include\StarsRpg\playerCharacter.h(242,72): error C2027: use of undefined type 'ItemManager'
+  (compiling source file 'item_manager.cpp')
+  C:\Users\Filip\OneDrive\Pulpit\FILIP\PROJEKTY\Visual Studio\StarsRPG-master\StarsRPG-master\StarsRpg\include\StarsRpg\item.h(48,15):
+  see declaration of 'ItemManager'
+  
+C:\Users\Filip\OneDrive\Pulpit\FILIP\PROJEKTY\Visual Studio\StarsRPG-master\StarsRPG-master\StarsRpg\include\StarsRpg\playerCharacter.h(242,72): error C3861: 'DeleteItem': identifier not found
+  (compiling source file 'item_manager.cpp')
+  
+  main.cpp
+C:\Users\Filip\OneDrive\Pulpit\FILIP\PROJEKTY\Visual Studio\StarsRPG-master\StarsRPG-master\StarsRpg\include\StarsRpg\playerCharacter.h(242,72): error C2027: use of undefined type 'ItemManager'
+  (compiling source file 'main.cpp')
+  C:\Users\Filip\OneDrive\Pulpit\FILIP\PROJEKTY\Visual Studio\StarsRPG-master\StarsRPG-master\StarsRpg\include\StarsRpg\item.h(48,15):
+  see declaration of 'ItemManager'
+  
+C:\Users\Filip\OneDrive\Pulpit\FILIP\PROJEKTY\Visual Studio\StarsRPG-master\StarsRPG-master\StarsRpg\include\StarsRpg\playerCharacter.h(242,72): error C3861: 'DeleteItem': identifier not found
+  (compiling source file 'main.cpp')
+  
+  Generating Code...
