@@ -10,11 +10,14 @@
  - <b>Attack</b> - increase Weapon Damage, primary multiplier
  - <b>Defense</b> - decrease Weapon damage taken by a percantege, based on this
  ========================================================
- - <b>Attunment</b> - incease Elemental Damage, primary multiplier
+ - <b>Attunment</b> - increase Elemental Damage, primary multiplier
  - <b>Warding</b> - decrease Elemental Damage taken by a percantege, based on this
  ========================================================
  - <b>HitPoints</b> - how much Damage you can take before Fainting
  - <b>Speed</b> - increase how often you take Action, and how high your Initial Action Order is
+========================================================
+ - <b>Energy</b> - when this is full, you can cast your Ultimate abillity. Afterwards, it is set to 0. Energy is generated when performing any action in combat outside of using items
+ - <b>Stamina</b> - rescource used to cast Skills. Restores a set ammount at the start of a Turn, using Basic Attacks also restores this.
 ========================================================
  - <b>Crit Damage</b> - increase all Critical Damage dealt
  - <b>Crit Rate</b> - increase the chance for all [non-DoT and non-Hazard DMG] to Crit 
@@ -37,7 +40,7 @@
  - <b>Energy Regen Rate</b> - increase the ammount of Energy gained when restoring Energy
  - <b>Energy Capacity</b> - how much Energy does your Ultimate cost (constant)
  ========================================================
- - <b>Stamina Regen Rate</b> - increase the ammount of Energy gained when restoring Stamina
+ - <b>Stamina Regen Rate</b> - increase the ammount of Stamina gained when restoring Stamina
  - <b>Stamina Capacity</b> - how much Stamina you can Carry
  ========================================================
 
